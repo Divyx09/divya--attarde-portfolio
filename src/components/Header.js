@@ -30,8 +30,9 @@ const Header = () => {
               className='logo'
               onClick={() => handleSectionClick("home")}
             >
-              <span className='logo-text'>DA</span>
+              <span className='logo-text'>D</span>
               <span className='logo-dot'></span>
+              <span className='logo-text'>A</span>
             </a>
           </div>
 
@@ -50,7 +51,6 @@ const Header = () => {
               <li>
                 <a
                   href='#home'
-                  className={activeSection === "home" ? "active" : ""}
                   onClick={() => handleSectionClick("home")}
                 >
                   <i className='bi bi-house'></i>
@@ -60,7 +60,6 @@ const Header = () => {
               <li>
                 <a
                   href='#about'
-                  className={activeSection === "about" ? "active" : ""}
                   onClick={() => handleSectionClick("about")}
                 >
                   <i className='bi bi-person'></i>
@@ -70,7 +69,6 @@ const Header = () => {
               <li>
                 <a
                   href='#skills'
-                  className={activeSection === "skills" ? "active" : ""}
                   onClick={() => handleSectionClick("skills")}
                 >
                   <i className='bi bi-code-slash'></i>
@@ -80,7 +78,6 @@ const Header = () => {
               <li>
                 <a
                   href='#projects'
-                  className={activeSection === "projects" ? "active" : ""}
                   onClick={() => handleSectionClick("projects")}
                 >
                   <i className='bi bi-briefcase'></i>
@@ -90,7 +87,6 @@ const Header = () => {
               <li>
                 <a
                   href='#contact'
-                  className={activeSection === "contact" ? "active" : ""}
                   onClick={() => handleSectionClick("contact")}
                 >
                   <i className='bi bi-envelope'></i>

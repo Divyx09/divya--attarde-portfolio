@@ -463,6 +463,134 @@ ul li::before {
   max-height: 100%;
 }
 
+/* Contact Section Styles */
+.contact-section {
+  padding: 4rem 2rem;
+}
+
+.contact-info {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  height: 100%;
+}
+
+.contact-info h4 {
+  color: #64B5F6;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.contact-details {
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #64B5F6;
+  margin-right: 1rem;
+  margin-top: 0.2rem;
+}
+
+.contact-item h5 {
+  color: #fff;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.contact-item p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.contact-form {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #64B5F6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #64B5F6, #2196F3);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.submit-btn .icon {
+  margin-right: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: #64B5F6;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #2196F3;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .portfolio-section {
     padding-top: calc(var(--header-height) + 20px);

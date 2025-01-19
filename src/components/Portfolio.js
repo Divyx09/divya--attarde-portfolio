@@ -13,6 +13,9 @@ import {
   faProjectDiagram,
   faMedal,
   faChevronRight,
+  faEnvelope,
+  faMapMarker,
+  faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faReact,
@@ -24,6 +27,7 @@ import {
   faCss3,
   faJs,
   faSass,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 // import pimg from "../assets/images/divy.png";
 // import pimg from "../assets/images/divy-removebg-preview.png";
@@ -68,7 +72,7 @@ const Portfolio = () => {
   return (
     <section className='portfolio-section' id='portfolio'>
       <div className='container'>
-        <div className='about-me-section'>
+        <div className='about-me-section' id='about'>
           <div className='row align-items-center'>
             <div className='col-lg-6'>
               <div className='about-text' data-aos='fade-right'>
@@ -133,21 +137,6 @@ const Portfolio = () => {
         </div>
 
         <div className='skills-section'>
-          {/* <div className='section' data-aos="fade-up" data-aos-duration="1000">
-            <div className="section-header">
-              <FontAwesomeIcon icon={faBriefcase} className="section-icon" />
-              <h3>PROFESSIONAL SUMMARY</h3>
-            </div>
-            <p>
-              Full-Stack Developer (React Developer Intern) with 1 year
-              experience. Expertise in integrating APIs using Java Spring Boot
-              using React as front-end framework along with SQL and MongoDB as
-              Database. Skilled in application design, development and deployment,
-              seeking opportunities to build innovative solutions and improve user
-              experiences.
-            </p>
-          </div> */}
-
           <div className='section' data-aos='fade-up' data-aos-duration='1000'>
             <div className='section-header'>
               <FontAwesomeIcon
@@ -198,7 +187,7 @@ const Portfolio = () => {
           </div>
 
           <div className='section' data-aos='fade-up' data-aos-duration='1000'>
-            <div className='section-header'>
+            <div className='section-header' id='skills'>
               <FontAwesomeIcon icon={faCogs} className='section-icon' />
               <h3>SKILLS</h3>
             </div>
@@ -360,7 +349,12 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className='section' data-aos='fade-up' data-aos-duration='1000'>
+          <div
+            className='section'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            id='projects'
+          >
             <div className='section-header'>
               <FontAwesomeIcon
                 icon={faProjectDiagram}
@@ -435,6 +429,72 @@ const Portfolio = () => {
                 RedHorse
               </li>
             </ul>
+          </div>
+
+          <div className='section contact-section' id='contact' data-aos='fade-up' data-aos-duration='1000'>
+            <div className='section-header'>
+              <FontAwesomeIcon icon={faEnvelope} className='section-icon' />
+              <h3>GET IN TOUCH</h3>
+            </div>
+            <div className='row'>
+              <div className='col-lg-6'>
+                <div className='contact-info'>
+                  <h4>Let's Connect</h4>
+                  <p>
+                    Feel free to reach out for collaborations, opportunities, or just a friendly chat!
+                    I'm always open to discussing new projects and ideas.
+                  </p>
+                  <div className='contact-details'>
+                    <div className='contact-item'>
+                      <FontAwesomeIcon icon={faEnvelope} className='contact-icon' />
+                      <div>
+                        <h5>Email</h5>
+                        <p>divyaattarde94@gmail.com</p>
+                      </div>
+                    </div>
+                    <div className='contact-item'>
+                      <FontAwesomeIcon icon={faMapMarker} className='contact-icon' />
+                      <div>
+                        <h5>Location</h5>
+                        <p>Indore, MP, India</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='social-links mt-4'>
+                    <a href='https://github.com/divyx09' target='_blank' rel='noopener noreferrer'>
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a href='https://linkedin.com/in/divya-attarde' target='_blank' rel='noopener noreferrer'>
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className='col-lg-6'>
+                <form className='contact-form'>
+                  <div className='form-group'>
+                    <label>Your Name</label>
+                    <input type='text' className='form-control' placeholder='Enter your name' required />
+                  </div>
+                  <div className='form-group'>
+                    <label>Email Address</label>
+                    <input type='email' className='form-control' placeholder='Enter your email' required />
+                  </div>
+                  <div className='form-group'>
+                    <label>Subject</label>
+                    <input type='text' className='form-control' placeholder='Enter subject' required />
+                  </div>
+                  <div className='form-group'>
+                    <label>Message</label>
+                    <textarea className='form-control' rows='4' placeholder='Enter your message' required></textarea>
+                  </div>
+                  <button type='submit' className='submit-btn'>
+                    <FontAwesomeIcon icon={faPaperPlane} className='me-2' />
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>

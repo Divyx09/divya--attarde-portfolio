@@ -3,7 +3,7 @@ import "../styles/Header.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  // const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
 
   const handleSectionClick = (sectionId) => {
-    setActiveSection(sectionId);
+    // setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
   };
 

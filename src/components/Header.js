@@ -49,28 +49,19 @@ const Header = () => {
           <nav className={`nav-menu ${isMobileMenuOpen ? "open" : ""}`}>
             <ul className='nav-links'>
               <li>
-                <a
-                  href='#home'
-                  onClick={() => handleSectionClick("home")}
-                >
+                <a href='#home' onClick={() => handleSectionClick("home")}>
                   <i className='bi bi-house'></i>
                   <span>Home</span>
                 </a>
               </li>
               <li>
-                <a
-                  href='#about'
-                  onClick={() => handleSectionClick("about")}
-                >
+                <a href='#about' onClick={() => handleSectionClick("about")}>
                   <i className='bi bi-person'></i>
                   <span>About</span>
                 </a>
               </li>
               <li>
-                <a
-                  href='#skills'
-                  onClick={() => handleSectionClick("skills")}
-                >
+                <a href='#skills' onClick={() => handleSectionClick("skills")}>
                   <i className='bi bi-code-slash'></i>
                   <span>Skills</span>
                 </a>
@@ -105,7 +96,7 @@ const Header = () => {
                   <i className='bi bi-github'></i>
                 </a>
                 <a
-                  href='https://linkedin.com/in/divya-attarde'
+                  href='https://www.linkedin.com/in/divya-attarde-634650253'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

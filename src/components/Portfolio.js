@@ -34,6 +34,7 @@ import {
 // import pimg from "../assets/images/divy-removebg-previes/divy.glb;
 // import model3d from "../assets/3d deep.glb";
 import model3d from "../assets/divy.glb";
+import resume from "../assets/divyaUpdated.pdf";
 
 function Model(props) {
   const { scene } = useGLTF(model3d);
@@ -88,11 +89,7 @@ const Portfolio = () => {
                   beautiful, and intuitive solutions.
                 </p>
                 <div className='about-actions'>
-                  <a
-                    href='/path-to-your-cv.pdf'
-                    className='download-cv'
-                    download
-                  >
+                  <a href={resume} className='download-cv' download>
                     <i className='bi bi-download me-2'></i>
                     Download CV
                   </a>
@@ -105,7 +102,7 @@ const Portfolio = () => {
                       <i className='bi bi-github'></i>
                     </a>
                     <a
-                      href='https://linkedin.com/in/divya-attarde'
+                      href='https://www.linkedin.com/in/divya-attarde-634650253'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
@@ -201,16 +198,7 @@ const Portfolio = () => {
               </h4>
               <div className='skills-container'>
                 {skills.technical.map((skill, index) => (
-                  <span
-                    key={index}
-                    className='skill-tag'
-                    data-aos='zoom-in'
-                    data-aos-delay={index * 50}
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
-                      transform: `translateY(${Math.sin(index) * 5}px)`,
-                    }}
-                  >
+                  <span key={index} className='skill-tag' data-aos='zoom-in'>
                     <FontAwesomeIcon icon={skill.icon} className='skill-icon' />
                     {skill.name}
                   </span>
@@ -227,16 +215,7 @@ const Portfolio = () => {
               </h4>
               <div className='skills-container'>
                 {skills.soft.map((skill, index) => (
-                  <span
-                    key={index}
-                    className='skill-tag'
-                    data-aos='zoom-in'
-                    data-aos-delay={index * 50}
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
-                      transform: `translateY(${Math.sin(index) * 5}px)`,
-                    }}
-                  >
+                  <span key={index} className='skill-tag' data-aos='zoom-in'>
                     <FontAwesomeIcon
                       icon={faChevronRight}
                       className='skill-icon'
@@ -254,23 +233,18 @@ const Portfolio = () => {
                 />
                 Cognitive Skills
               </h4>
-              <div className='skills-container'>
+              <div className='skills-container '>
                 {skills.cognitive.map((skill, index) => (
                   <span
                     key={index}
-                    className='skill-tag'
+                    className='skill-tag d-flex align-items-center justify-content-center '
                     data-aos='zoom-in'
-                    data-aos-delay={index * 50}
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
-                      transform: `translateY(${Math.sin(index) * 5}px)`,
-                    }}
                   >
                     <FontAwesomeIcon
                       icon={faChevronRight}
                       className='skill-icon'
                     />
-                    {skill}
+                    <span>{skill}</span>
                   </span>
                 ))}
               </div>
@@ -431,7 +405,12 @@ const Portfolio = () => {
             </ul>
           </div>
 
-          <div className='section contact-section' id='contact' data-aos='fade-up' data-aos-duration='1000'>
+          <div
+            className='section contact-section'
+            id='contact'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
             <div className='section-header'>
               <FontAwesomeIcon icon={faEnvelope} className='section-icon' />
               <h3>GET IN TOUCH</h3>
@@ -441,19 +420,26 @@ const Portfolio = () => {
                 <div className='contact-info'>
                   <h4>Let's Connect</h4>
                   <p>
-                    Feel free to reach out for collaborations, opportunities, or just a friendly chat!
-                    I'm always open to discussing new projects and ideas.
+                    Feel free to reach out for collaborations, opportunities, or
+                    just a friendly chat! I'm always open to discussing new
+                    projects and ideas.
                   </p>
                   <div className='contact-details'>
                     <div className='contact-item'>
-                      <FontAwesomeIcon icon={faEnvelope} className='contact-icon' />
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className='contact-icon'
+                      />
                       <div>
                         <h5>Email</h5>
                         <p>divyaattarde94@gmail.com</p>
                       </div>
                     </div>
                     <div className='contact-item'>
-                      <FontAwesomeIcon icon={faMapMarker} className='contact-icon' />
+                      <FontAwesomeIcon
+                        icon={faMapMarker}
+                        className='contact-icon'
+                      />
                       <div>
                         <h5>Location</h5>
                         <p>Indore, MP, India</p>
@@ -461,10 +447,18 @@ const Portfolio = () => {
                     </div>
                   </div>
                   <div className='social-links mt-4'>
-                    <a href='https://github.com/divyx09' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='https://github.com/divyx09'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href='https://linkedin.com/in/divya-attarde' target='_blank' rel='noopener noreferrer'>
+                    <a
+                      href='https://www.linkedin.com/in/divya-attarde-634650253'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                   </div>
@@ -474,19 +468,39 @@ const Portfolio = () => {
                 <form className='contact-form'>
                   <div className='form-group'>
                     <label>Your Name</label>
-                    <input type='text' className='form-control' placeholder='Enter your name' required />
+                    <input
+                      type='text'
+                      className='form-control'
+                      placeholder='Enter your name'
+                      required
+                    />
                   </div>
                   <div className='form-group'>
                     <label>Email Address</label>
-                    <input type='email' className='form-control' placeholder='Enter your email' required />
+                    <input
+                      type='email'
+                      className='form-control'
+                      placeholder='Enter your email'
+                      required
+                    />
                   </div>
                   <div className='form-group'>
                     <label>Subject</label>
-                    <input type='text' className='form-control' placeholder='Enter subject' required />
+                    <input
+                      type='text'
+                      className='form-control'
+                      placeholder='Enter subject'
+                      required
+                    />
                   </div>
                   <div className='form-group'>
                     <label>Message</label>
-                    <textarea className='form-control' rows='4' placeholder='Enter your message' required></textarea>
+                    <textarea
+                      className='form-control'
+                      rows='4'
+                      placeholder='Enter your message'
+                      required
+                    ></textarea>
                   </div>
                   <button type='submit' className='submit-btn'>
                     <FontAwesomeIcon icon={faPaperPlane} className='me-2' />

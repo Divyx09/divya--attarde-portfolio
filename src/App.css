@@ -714,7 +714,7 @@ section:hover .section-background {
 
 /* Section Content */
 .about-content,
-.skills-container,
+/* .skills-container, */
 .projects-grid,
 .contact-content {
   position: relative;
@@ -776,7 +776,7 @@ section:hover .section-background {
   }
 
   .about-content,
-  .skills-container,
+  /* .skills-container, */
   .projects-grid,
   .contact-content {
     grid-template-columns: 1fr;
@@ -788,9 +788,9 @@ section:hover .section-background {
     grid-template-columns: 1fr 1fr;
   }
 
-  .skills-container {
+  /* .skills-container {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 
   .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -949,7 +949,6 @@ section::before {
 .skill-icon {
   font-size: 2.5rem;
   color: #64ffda;
-  margin-bottom: 1.5rem;
 }
 
 /* Projects Section */

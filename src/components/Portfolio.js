@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import "../styles/Portfolio.css";
@@ -35,6 +35,7 @@ import {
 // import model3d from "../assets/3d deep.glb";
 import model3d from "../assets/divy.glb";
 import resume from "../assets/divyaUpdated.pdf";
+import axios from "axios";
 
 function Model(props) {
   const { scene } = useGLTF(model3d);
@@ -61,6 +62,30 @@ const Portfolio = () => {
     ],
     soft: ["Problem-Solving", "Time Management", "Adaptability", "Leadership"],
     cognitive: ["Critical Thinking", "Reasoning", "Learning"],
+  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    description: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "https://divya-portfolio-backend-d0a9hkbfh3dagzf9.centralindia-01.azurewebsites.net/api/details",
+        formData,
+      )
+      .then((res) => {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          description: "",
+        });
+      });
   };
 
   useEffect(() => {
@@ -465,7 +490,7 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className='col-lg-6'>
-                <form className='contact-form'>
+                <form className='contact-form' onSubmit={handleSubmit}>
                   <div className='form-group'>
                     <label>Your Name</label>
                     <input
@@ -473,6 +498,10 @@ const Portfolio = () => {
                       className='form-control'
                       placeholder='Enter your name'
                       required
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
                   </div>
                   <div className='form-group'>
@@ -482,6 +511,10 @@ const Portfolio = () => {
                       className='form-control'
                       placeholder='Enter your email'
                       required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                     />
                   </div>
                   <div className='form-group'>
@@ -491,6 +524,10 @@ const Portfolio = () => {
                       className='form-control'
                       placeholder='Enter subject'
                       required
+                      value={formData.subject}
+                      onChange={(e) =>
+                        setFormData({ ...formData, subject: e.target.value })
+                      }
                     />
                   </div>
                   <div className='form-group'>
@@ -500,6 +537,13 @@ const Portfolio = () => {
                       rows='4'
                       placeholder='Enter your message'
                       required
+                      value={formData.description}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          description: e.target.value,
+                        })
+                      }
                     ></textarea>
                   </div>
                   <button type='submit' className='submit-btn'>

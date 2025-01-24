@@ -506,7 +506,15 @@ const Portfolio = () => {
               <li data-aos='fade-right' data-aos-delay='100'>
                 <FontAwesomeIcon icon={faChevronRight} className='list-icon' />
                 Participated in the Google Cloud Skill Boost Program, earning
-                multiple certifications and badges
+                multiple certifications and badges 11. (
+                <a
+                  href='https://www.cloudskillsboost.google/public_profiles/fbf20461-48c7-4b17-bc9d-c619f1092faf'
+                  className='link-info'
+                  target="_blank"
+                >
+                  Certificates & Badges
+                </a>
+                )
               </li>
               <li data-aos='fade-right' data-aos-delay='200'>
                 <FontAwesomeIcon icon={faChevronRight} className='list-icon' />

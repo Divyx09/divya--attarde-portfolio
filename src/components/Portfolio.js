@@ -16,6 +16,8 @@ import {
   faEnvelope,
   faMapMarker,
   faPaperPlane,
+  faArrowDown,
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faReact,
@@ -36,6 +38,7 @@ import {
 import model3d from "../assets/divy.glb";
 import resume from "../assets/divyaUpdated.pdf";
 import axios from "axios";
+import { projects } from "./projects";
 
 function Model(props) {
   const { scene } = useGLTF(model3d);
@@ -70,6 +73,8 @@ const Portfolio = () => {
     subject: "",
     description: "",
   });
+
+  const [seeMoreProjects, setSeeMoreProjects] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -183,10 +188,11 @@ const Portfolio = () => {
                 <span>Expected 2026</span>
               </div>
               <p>Sri Aurobindo Institute Of Technology (RGPV)</p>
-              <p>
-                Relevant Coursework: Web Development, Operating Systems, and
-                Java.
-              </p>
+              <span>
+                In-depth study of Data Structures, Algorithms, Operating
+                Systems, and Database Management Systems. Strong focus on
+                full-stack development using React, Spring Boot, and MongoDB.
+              </span>
             </div>
 
             <div
@@ -205,6 +211,13 @@ const Portfolio = () => {
                 <span>2020 - 2023</span>
               </div>
               <p>Ujjain Polytechnic College (RGPV)</p>
+              <p>CGPA : 7.8/10</p>
+              <span>
+                Acquired strong foundational knowledge in computer science
+                including programming languages like Java, C, and Python.
+                Completed coursework in Data Structures, Database Management
+                Systems, and Software Engineering.
+              </span>
             </div>
           </div>
 
@@ -301,7 +314,7 @@ const Portfolio = () => {
                     className='list-icon'
                   />
                   Developed web application modules handling user interfaces and
-                  events using React, Redux, Bootstrap, and SCSS
+                  events using React, Redux, Bootstrap, and SCSS.
                 </li>
                 <li data-aos='fade-up' data-aos-delay='200'>
                   <FontAwesomeIcon
@@ -309,11 +322,74 @@ const Portfolio = () => {
                     className='list-icon'
                   />
                   Led team project improving communication skills and achieving
-                  80% growth in frontend development
+                  80% growth in frontend development.
+                </li>
+                <li data-aos='fade-up' data-aos-delay='300'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Integrated APIs for dynamic data handling and seamless user
+                  experience across multiple platforms.
+                </li>
+                <li data-aos='fade-up' data-aos-delay='200'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Created an <strong>Admin Panel</strong> to manage various
+                  events, including meetup registrations, event scheduling, and
+                  user management, improving administrative efficiency by 70%.
                 </li>
               </ul>
             </div>
 
+            <div
+              className='experience-item'
+              data-aos='fade-right'
+              data-aos-delay='200'
+            >
+              <div className='exp-header'>
+                <h4>
+                  <FontAwesomeIcon icon={faJava} className='item-icon' />
+                  Java Internship
+                </h4>
+                <span>Mar 2024 - Apr 2024</span>
+              </div>
+              <p className='company'>Ypsilon IT Solutions, Indore, MP</p>
+              <ul>
+                <li data-aos='fade-up' data-aos-delay='250'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Worked on Java projects focusing on core and advanced
+                  concepts.
+                </li>
+                <li data-aos='fade-up' data-aos-delay='300'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Assisted in debugging and optimizing Java-based applications.
+                </li>
+                <li data-aos='fade-up' data-aos-delay='300'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Collaborated with the team to implement features and resolve
+                  technical challenges.
+                </li>
+                <li data-aos='fade-up' data-aos-delay='300'>
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className='list-icon'
+                  />
+                  Gained hands-on experience in software development practices.
+                </li>
+              </ul>
+            </div>
             <div
               className='experience-item'
               data-aos='fade-right'
@@ -361,52 +437,63 @@ const Portfolio = () => {
               />
               <h3>PROJECTS</h3>
             </div>
-            <div
-              className='project-item'
-              data-aos='fade-up'
-              data-aos-delay='100'
-            >
-              <h4>
-                <FontAwesomeIcon icon={faCode} className='item-icon' />
-                BHARAT News Website
-              </h4>
-              <p>
-                Developed the BHARAT news website, a global news platform, using
-                React.js and integrated APIs for real-time news updates with
-                JavaScript, CSS, and HTML.
-              </p>
-            </div>
-
-            <div
-              className='project-item'
-              data-aos='fade-up'
-              data-aos-delay='200'
-            >
-              <h4>
-                <FontAwesomeIcon icon={faCode} className='item-icon' />
-                Netflix Clone
-              </h4>
-              <p>
-                Led a team in developing a Netflix clone using React, Redux,
-                Bootstrap, SCSS, and JavaScript, integrating APIs for real-time
-                data and streaming functionalities. Managed source code with Git
-                and GitHub.
-              </p>
-            </div>
-
-            <div
-              className='project-item'
-              data-aos='fade-up'
-              data-aos-delay='300'
-            >
-              <h4>
-                <FontAwesomeIcon icon={faCode} className='item-icon' />
-                INDIMART E-Commerce Website
-              </h4>
-              <p>
-                Developed the INDIMART E-Commerce website using Python and
-                Django, with Bootstrap for responsive styling.
-              </p>
+            {projects
+              .slice(0, seeMoreProjects ? 8 : 3)
+              .map((project, index) => (
+                <div
+                  key={index}
+                  className='project-item'
+                  data-aos='fade-up'
+                  data-aos-delay='100'
+                >
+                  <h4>
+                    <FontAwesomeIcon icon={faCode} className='item-icon' />
+                    <a
+                      href={project.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {project.title}
+                    </a>
+                  </h4>
+                  <p>{project.description}</p>
+                  <div className='project-languages'>
+                    {project.languages &&
+                      project.languages.map((lang, i) => (
+                        <span key={i} className='language-tag'>
+                          {lang}
+                        </span>
+                      ))}
+                  </div>
+                  <a
+                    href={project.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='view-code-btn'
+                  >
+                    <FontAwesomeIcon icon={faGithub} /> View Code
+                  </a>
+                </div>
+              ))}
+            <div className=' d-flex justify-content-end  mt-2'>
+              <span
+                className='nav-link'
+                onClick={() => {
+                  setSeeMoreProjects(!seeMoreProjects);
+                }}
+              >
+                {seeMoreProjects ? (
+                  <span className='d-flex align-items-center'>
+                    <FontAwesomeIcon icon={faArrowUp} className='mx-2' />
+                    See Less Projects
+                  </span>
+                ) : (
+                  <span className='d-flex align-items-center'>
+                    <FontAwesomeIcon icon={faArrowDown} className='mx-2' /> See
+                    More Projects
+                  </span>
+                )}
+              </span>
             </div>
           </div>
 

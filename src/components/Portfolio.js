@@ -511,6 +511,7 @@ const Portfolio = () => {
                   href='https://www.cloudskillsboost.google/public_profiles/fbf20461-48c7-4b17-bc9d-c619f1092faf'
                   className='link-info'
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Certificates & Badges
                 </a>

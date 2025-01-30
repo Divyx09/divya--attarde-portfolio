@@ -783,6 +783,9 @@ section:hover .section-background {
 }
 
 @media (min-width: 769px) {
+  body {
+    text-align: justify !important;
+  }
   .about-content {
     grid-template-columns: 1fr 1fr;
   }

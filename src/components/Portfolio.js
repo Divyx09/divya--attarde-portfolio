@@ -469,7 +469,7 @@ const Portfolio = () => {
                     href={project.url}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='view-code-btn'
+                    className='view-code-btn d-none d-md-block'
                   >
                     <FontAwesomeIcon icon={faGithub} /> View Code
                   </a>
@@ -510,8 +510,8 @@ const Portfolio = () => {
                 <a
                   href='https://www.cloudskillsboost.google/public_profiles/fbf20461-48c7-4b17-bc9d-c619f1092faf'
                   className='link-info'
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   Certificates & Badges
                 </a>

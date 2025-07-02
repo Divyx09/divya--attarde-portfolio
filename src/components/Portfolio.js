@@ -35,6 +35,7 @@ import {
 // import pimg from "../assets/images/divy-removebg-preview.png";
 // import pimg from "../assets/images/divy-removebg-previes/divy.glb;
 // import model3d from "../assets/3d deep.glb";
+//sad
 import model3d from "../assets/divy.glb";
 import resume from "../assets/divyaUpdated.pdf";
 import axios from "axios";

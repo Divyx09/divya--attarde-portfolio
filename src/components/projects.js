@@ -1,5 +1,30 @@
 export const projects = [
   {
+    title: "CraftAura.in - Artworks E-Commerce",
+    description:
+      "Built a live e-commerce platform for artwork shopping with user authentication, cart management, and admin dashboard. Tech Stack: React.js + Redux + Spring Boot + MongoDB/CI/CD. Features include secure payment processing, inventory management, and responsive design.",
+    languages: ["React.js", "Redux", "Spring Boot", "MongoDB", "CI/CD"],
+    url: "https://craftaura.in",
+    github_url: "https://github.com/Divyx09/CraftAura-Frontend",
+    backend_url: "https://github.com/Divyx09/CraftAura-Backend",
+  },
+  {
+    title: "TradeApp",
+    description:
+      "React Native trading app with multi-role panels: User, Broker, Super Admin. Integrated Node.js backend and Yahoo Finance APIs for real-time stock data and candlestick charts. Features secure authentication, portfolio tracking, and live market data.",
+    languages: ["React Native", "Node.js", "Yahoo Finance API", "MongoDB"],
+    url: "https://github.com/Divyx09/TradeApp",
+    backend_url: "https://github.com/Divyx09/TradeApp-Backend",
+  },
+  {
+    title: "Lost & Found Portal",
+    description:
+      "React.js + Spring Boot web app enabling institutions to track lost/found items with secure user authentication and admin approval workflow. Features include item categorization, image upload, notification system, and comprehensive admin panel.",
+    languages: ["React.js", "Spring Boot", "MySQL", "JWT Authentication"],
+    url: "https://github.com/Divyx09/Lost-Found-Portal",
+    backend_url: "https://github.com/Divyx09/Lost-Found-Backend",
+  },
+  {
     title: "Phone-Shop",
     description:
       "An e-commerce website where users can browse and purchase phones. The frontend provides a user-friendly interface for selecting products, while the backend handles APIs for product management, user authentication, and order processing. The project ensures smooth integration between the frontend and backend for a seamless shopping experience.",

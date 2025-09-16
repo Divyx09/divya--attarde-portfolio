@@ -1,161 +1,258 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Header.css";
+import profileImage from "../assets/divya-attarde-iamge.png";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const sections = ["home", "about", "skills", "experience", "projects", "contact"];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -80% 0px', // Trigger when section is 20% from top
+      threshold: 0
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          if (sections.includes(sectionId) && sectionId !== activeSection) {
+            console.log('Section in view:', sectionId);
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    sections.forEach(sectionId => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+        console.log('Observing section:', sectionId, 'at position:', element.offsetTop);
+      } else {
+        console.log('Section not found:', sectionId);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [activeSection]);
 
   const handleSectionClick = (sectionId) => {
+    setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Account for any fixed headers
+      const elementPosition = element.offsetTop - offset;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
     <>
-      <header className={`header ${isScrolled ? "header-scrolled" : ""}`}>
-        <div className='header-container'>
-          <div className='logo-container'>
-            <a
-              href='#home'
-              className='logo'
-              onClick={() => handleSectionClick("home")}
-            >
-              <span className='logo-text'>D</span>
-              <span className='logo-dot'></span>
-              <span className='logo-text'>A</span>
-            </a>
-          </div>
-
-          <button
-            className={`mobile-menu-button ${isMobileMenuOpen ? "open" : ""}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label='Toggle menu'
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <nav className={`nav-menu ${isMobileMenuOpen ? "open" : ""}`}>
-            <ul className='nav-links'>
-              <li>
-                <a href='#home' onClick={() => handleSectionClick("home")}>
-                  <i className='bi bi-house'></i>
-                  <span>Home</span>
-                </a>
-              </li>
-              <li>
-                <a href='#about' onClick={() => handleSectionClick("about")}>
-                  <i className='bi bi-person'></i>
-                  <span>About</span>
-                </a>
-              </li>
-              <li>
-                <a href='#skills' onClick={() => handleSectionClick("skills")}>
-                  <i className='bi bi-code-slash'></i>
-                  <span>Skills</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#projects'
-                  onClick={() => handleSectionClick("projects")}
-                >
-                  <i className='bi bi-briefcase'></i>
-                  <span>Projects</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#contact'
-                  onClick={() => handleSectionClick("contact")}
-                >
-                  <i className='bi bi-envelope'></i>
-                  <span>Contact</span>
-                </a>
-              </li>
-            </ul>
-
-            <div className='nav-footer'>
-              <div className='social-links'>
-                <a
-                  href='https://github.com/divyx09'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='bi bi-github'></i>
-                </a>
-                <a
-                  href='https://www.linkedin.com/in/divya-attarde-634650253'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='bi bi-linkedin'></i>
-                </a>
-                <a href='mailto:divyaattarde94@gmail.com'>
-                  <i className='bi bi-envelope-fill'></i>
-                </a>
-              </div>
+      {/* Minimal Left Tab Navigation */}
+      <aside className="tab-nav">
+        <nav className="tab-menu">
+          <ul className="tab-links">
+            <li>
+              <a 
+                href="#home" 
+                className={activeSection === "home" ? "active" : ""}
+                onClick={() => handleSectionClick("home")}
+              >
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#about" 
+                className={activeSection === "about" ? "active" : ""}
+                onClick={() => handleSectionClick("about")}
+              >
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#skills" 
+                className={activeSection === "skills" ? "active" : ""}
+                onClick={() => handleSectionClick("skills")}
+              >
+                <span>Skills</span>
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#experience" 
+                className={activeSection === "experience" ? "active" : ""}
+                onClick={() => handleSectionClick("experience")}
+              >
+                <span>Experience</span>
+              </a>
+            </li>
+            <li>
               <a
-                href='#contact'
-                className='contact-button'
+                href="#projects"
+                className={activeSection === "projects" ? "active" : ""}
+                onClick={() => handleSectionClick("projects")}
+              >
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className={activeSection === "contact" ? "active" : ""}
                 onClick={() => handleSectionClick("contact")}
               >
-                Let's Connect
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Mobile Menu Button */}
+      <button
+        className={`mobile-menu-button ${isMobileMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Mobile Navigation Overlay */}
+      <div className={`mobile-nav-overlay ${isMobileMenuOpen ? "open" : ""}`}>
+        <nav className="mobile-nav">
+          <ul className="mobile-nav-links">
+            <li>
+              <a href="#home" onClick={() => handleSectionClick("home")}>
+                <i className="bi bi-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about" onClick={() => handleSectionClick("about")}>
+                <i className="bi bi-person"></i>
+                <span>About</span>
+              </a>
+            </li>
+            <li>
+              <a href="#skills" onClick={() => handleSectionClick("skills")}>
+                {/* <i className="bi bi-code-slash"></i> */}
+                <span>Skills</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" onClick={() => handleSectionClick("projects")}>
+                <i className="bi bi-briefcase"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" onClick={() => handleSectionClick("contact")}>
+                <i className="bi bi-envelope"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Hero Section */}
+      <section id="home" className="hero-section">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">
+              <span className="hero-greeting">Hi, I'm</span>
+              <span className="hero-name">Divya Attarde</span>
+            </h1>
+            <h2 className="hero-subtitle">
+              <span className="highlight">Software Developer</span>
+            </h2>
+            <p className="hero-description">
+              Passionate Junior Software Developer specializing in building web and mobile applications, 
+              SEO tools, and client platforms using modern technologies like React.js, Spring Boot, and Next.js.
+            </p>
+            <div className="hero-stats">
+              <div className="stat-item">
+                <span className="stat-number">2+</span>
+                <span className="stat-label">Years Experience</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">70+</span>
+                <span className="stat-label">Projects Completed</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">5+</span>
+                <span className="stat-label">Certifications</span>
+              </div>
+            </div>
+            <div className="hero-buttons">
+              <a
+                href="#projects"
+                className="primary-button"
+                onClick={() => handleSectionClick("projects")}
+              >
+                <i className="bi bi-briefcase"></i>
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="secondary-button"
+                onClick={() => handleSectionClick("contact")}
+              >
+                <i className="bi bi-chat-dots"></i>
+                Contact Me
               </a>
             </div>
-          </nav>
-        </div>
-      </header>
-
-      <section id='home' className='hero-section'>
-        <div className='hero-content'>
-          <h1 className='hero-title'>
-            <span className='highlight'>DIVYA ATTARDE</span>
-          </h1>
-          <p className='hero-subtitle'>Full-Stack Developer</p>
-          <p className='hero-description'>
-            Passionate about creating innovative web solutions and turning ideas
-            into reality.
-          </p>
-          <div className='hero-buttons'>
-            <a
-              href='#projects'
-              className='primary-button'
-              onClick={() => handleSectionClick("projects")}
-            >
-              View Projects
-            </a>
-            <a
-              href='#contact'
-              className='secondary-button'
-              onClick={() => handleSectionClick("contact")}
-            >
-              Contact Me
-            </a>
+          </div>
+          
+          <div className="hero-visual">
+            <div className="hero-image-container">
+              <img 
+                src={profileImage} 
+                alt="Divya Attarde - Software Developer" 
+                className="hero-profile-image"
+              />
+              <div className="hero-image-overlay">
+                <div className="floating-tech tech-1">
+                  <i className="bi bi-code-slash"></i>
+                </div>
+                <div className="floating-tech tech-2">
+                  <i className="bi bi-braces"></i>
+                </div>
+                <div className="floating-tech tech-3">
+                  <i className="bi bi-database"></i>
+                </div>
+                <div className="floating-tech tech-4">
+                  <i className="bi bi-laptop"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className='hero-background'>
-          <div className='animated-shape shape-1'>
-            <i className='bi bi-code-slash'></i>
+        
+        <div className="scroll-indicator">
+          <div className="scroll-mouse">
+            <div className="scroll-wheel"></div>
           </div>
-          <div className='animated-shape shape-2'>
-            <i className='bi bi-braces'></i>
-          </div>
-          <div className='animated-shape shape-3'>
-            <i className='bi bi-database'></i>
-          </div>
-          <div className='animated-shape shape-4'>
-            <i className='bi bi-laptop'></i>
-          </div>
+          <span>Scroll Down</span>
         </div>
       </section>
     </>

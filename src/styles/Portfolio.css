@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-
 .portfolio-section {
   padding-top: 40px;
   padding-bottom: 100px;
+  padding-left: 200px;
   background: linear-gradient(135deg, #0c1220 0%, #1a2332 100%);
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
@@ -29,9 +29,10 @@
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  /* max-width: 1200px; */
+  margin: 0;
+  width: 100%;
+  /* padding: 0 20px; */
   position: relative;
   z-index: 1;
 }
@@ -771,8 +772,298 @@ textarea.form-control {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
   .certification-item {
     padding: 20px;
+  }
+}
+
+/* Large Desktop Screens (1920px+) */
+@media (min-width: 1920px) {
+  .portfolio-section {
+    padding-left: 40px;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-title {
+    font-size: 4rem;
+  }
+}
+
+/* Desktop Screens (1200px - 1919px) */
+@media (min-width: 1400px) and (max-width: 1919px) {
+  .portfolio-section {
+    padding-left: 50px;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .portfolio-section {
+    padding-left: 120px;
+  }
+
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+}
+
+/* Large Tablets and Small Desktops (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .portfolio-section {
+    padding-left: 180px;
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 25px;
+  }
+
+  .section-title {
+    font-size: 3.2rem;
+  }
+
+  .section {
+    padding: 30px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Tablets (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .portfolio-section {
+    padding-left: 120px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .section {
+    padding: 25px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Mobile Landscape and Small Tablets (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .portfolio-section {
+    padding-left: 80px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 2.3rem;
+    margin-bottom: 40px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .skills-container {
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+
+/* Mobile Portrait (max-width: 575px) */
+@media (max-width: 575px) {
+  .portfolio-section {
+    padding-left: 60px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .section {
+    padding: 15px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .skills-container {
+    gap: 5px;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .project-item {
+    padding: 15px;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile (max-width: 375px) */
+@media (max-width: 375px) {
+  .portfolio-section {
+    padding-left: 40px;
+    padding-top: 25px;
+    padding-bottom: 40px;
+  }
+
+  .container {
+    padding: 0 8px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .section {
+    padding: 12px;
+  }
+
+  .about-text {
+    font-size: 0.85rem;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .skill-tag {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .project-item {
+    padding: 12px;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ultra Small Mobile (max-width: 320px) */
+@media (max-width: 320px) {
+  .portfolio-section {
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 35px;
+  }
+
+  .container {
+    padding: 0 5px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    padding: 10px;
   }
 }

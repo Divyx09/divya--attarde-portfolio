@@ -334,9 +334,10 @@ const Portfolio = () => {
               <p>Maharashtra State Board</p>
               <p>Percentage: 85.2%</p>
               <span>
-                Completed secondary education with focus on core subjects including
-                Mathematics, Science, English, Hindi, Marathi, and Social Studies.
-                Strong foundation in analytical and problem-solving skills.
+                Completed secondary education with focus on core subjects
+                including Mathematics, Science, English, Hindi, Marathi, and
+                Social Studies. Strong foundation in analytical and
+                problem-solving skills.
               </span>
             </div>
           </div>
@@ -351,7 +352,7 @@ const Portfolio = () => {
               <FontAwesomeIcon icon={faCogs} className="section-icon" />
               <h3>SKILLS</h3>
             </div>
-            
+
             {/* Frontend Skills */}
             <div>
               <h4>
@@ -806,7 +807,7 @@ const Portfolio = () => {
               <FontAwesomeIcon icon={faEnvelope} className="section-icon" />
               <h3>GET IN TOUCH</h3>
             </div>
-            <div className="row">
+            <div className="row gap-4 gap-lg-0">
               <div className="col-lg-6">
                 <div className="contact-info">
                   <h4>Let's Connect</h4>

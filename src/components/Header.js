@@ -167,13 +167,19 @@ const Header = () => {
             </li>
             <li>
               <a href="#skills" onClick={() => handleSectionClick("skills")}>
-                {/* <i className="bi bi-code-slash"></i> */}
+                <i className="bi bi-code-slash"></i>
                 <span>Skills</span>
               </a>
             </li>
             <li>
+              <a href="#experience" onClick={() => handleSectionClick("experience")}>
+                <i className="bi bi-briefcase-fill"></i>
+                <span>Experience</span>
+              </a>
+            </li>
+            <li>
               <a href="#projects" onClick={() => handleSectionClick("projects")}>
-                <i className="bi bi-briefcase"></i>
+                <i className="bi bi-folder"></i>
                 <span>Projects</span>
               </a>
             </li>

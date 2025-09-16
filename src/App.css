@@ -809,8 +809,8 @@ section {
   position: relative;
   background: linear-gradient(
     135deg,
-    rgba(26, 26, 46, 0.95),
-    rgba(22, 33, 62, 0.95)
+    rgba(0, 0, 0, 0.95),
+    rgba(8, 17, 41, 0.95)
   );
   backdrop-filter: blur(10px);
   border-radius: 20px;

@@ -17,6 +17,9 @@ import {
   faArrowDown,
   faArrowUp,
   faCloud,
+  faDatabase,
+  faServer,
+  faTools,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faReact,
@@ -36,7 +39,7 @@ import { projects } from "./projects";
 
 const Portfolio = () => {
   const skills = {
-    technical: [
+    frontend: [
       { name: "React", icon: faReact },
       { name: "Next.js", icon: faReact },
       { name: "React Native", icon: faReact },
@@ -48,30 +51,31 @@ const Portfolio = () => {
       { name: "SCSS", icon: faSass },
       { name: "Tailwind CSS", icon: faCss3 },
       { name: "Bootstrap", icon: faBootstrap },
+    ],
+    backend: [
       { name: "Java", icon: faJava },
       { name: "Spring Boot", icon: faCode },
       { name: "Node.js", icon: faCode },
       { name: "Python", icon: faPython },
       { name: "Django", icon: faCode },
-      { name: "MYSQL", icon: faCode },
-      { name: "MongoDB", icon: faCode },
-      { name: "Azure", icon: faCode },
-      { name: "GCP", icon: faCode },
-      { name: "Github", icon: faGithub },
       { name: "REST APIs", icon: faCode },
     ],
-    soft: [
-      "Problem-Solving",
-      "Time Management",
-      "Adaptability",
-      "Leadership",
-      "Agile Methodology",
+    database: [
+      { name: "MySQL", icon: faCode },
+      { name: "MongoDB", icon: faCode },
+      { name: "PostgreSQL", icon: faCode },
     ],
-    cognitive: [
-      "Critical Thinking",
-      "Reasoning",
-      "Learning",
-      "SEO Optimization",
+    cloud: [
+      { name: "Azure", icon: faCloud },
+      { name: "Google Cloud Platform", icon: faCloud },
+      { name: "AWS", icon: faCloud },
+    ],
+    tools: [
+      { name: "Git", icon: faGithub },
+      { name: "GitHub", icon: faGithub },
+      { name: "VS Code", icon: faCode },
+      { name: "Postman", icon: faCode },
+      { name: "Docker", icon: faCode },
     ],
   };
 
@@ -347,16 +351,18 @@ const Portfolio = () => {
               <FontAwesomeIcon icon={faCogs} className="section-icon" />
               <h3>SKILLS</h3>
             </div>
+            
+            {/* Frontend Skills */}
             <div>
               <h4>
                 <FontAwesomeIcon
                   icon={faLaptopCode}
                   className="skill-category-icon"
                 />
-                Technical Skills
+                Frontend Development
               </h4>
               <div className="skills-container">
-                {skills.technical.map((skill, index) => (
+                {skills.frontend.map((skill, index) => (
                   <span key={index} className="skill-tag" data-aos="zoom-in">
                     <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
                     {skill.name}
@@ -364,46 +370,78 @@ const Portfolio = () => {
                 ))}
               </div>
             </div>
+
+            {/* Backend Skills */}
             <div style={{ marginTop: "20px" }}>
               <h4>
                 <FontAwesomeIcon
-                  icon={faBriefcase}
+                  icon={faServer}
                   className="skill-category-icon"
                 />
-                Soft Skills
+                Backend Development
               </h4>
               <div className="skills-container">
-                {skills.soft.map((skill, index) => (
+                {skills.backend.map((skill, index) => (
                   <span key={index} className="skill-tag" data-aos="zoom-in">
-                    <FontAwesomeIcon
-                      icon={faChevronRight}
-                      className="skill-icon"
-                    />
-                    {skill}
+                    <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+                    {skill.name}
                   </span>
                 ))}
               </div>
             </div>
+
+            {/* Database Skills */}
             <div style={{ marginTop: "20px" }}>
               <h4>
                 <FontAwesomeIcon
-                  icon={faBrain}
+                  icon={faDatabase}
                   className="skill-category-icon"
                 />
-                Cognitive Skills
+                Database Management
               </h4>
-              <div className="skills-container ">
-                {skills.cognitive.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="skill-tag d-flex align-items-center justify-content-center "
-                    data-aos="zoom-in"
-                  >
-                    <FontAwesomeIcon
-                      icon={faChevronRight}
-                      className="skill-icon"
-                    />
-                    <span>{skill}</span>
+              <div className="skills-container">
+                {skills.database.map((skill, index) => (
+                  <span key={index} className="skill-tag" data-aos="zoom-in">
+                    <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Cloud Skills */}
+            <div style={{ marginTop: "20px" }}>
+              <h4>
+                <FontAwesomeIcon
+                  icon={faCloud}
+                  className="skill-category-icon"
+                />
+                Cloud Platforms
+              </h4>
+              <div className="skills-container">
+                {skills.cloud.map((skill, index) => (
+                  <span key={index} className="skill-tag" data-aos="zoom-in">
+                    <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools Skills */}
+            <div style={{ marginTop: "20px" }}>
+              <h4>
+                <FontAwesomeIcon
+                  icon={faTools}
+                  className="skill-category-icon"
+                />
+                Development Tools
+              </h4>
+              <div className="skills-container">
+                {skills.tools.map((skill, index) => (
+                  <span key={index} className="skill-tag" data-aos="zoom-in">
+                    <FontAwesomeIcon icon={skill.icon} className="skill-icon" />
+                    {skill.name}
                   </span>
                 ))}
               </div>

@@ -159,7 +159,10 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="about-hero-visual" data-aos="fade-left">
+            <div
+              className="about-hero-visual d-none d-lg-flex"
+              data-aos="fade-left"
+            >
               <div className="floating-card card-1">
                 <FontAwesomeIcon icon={faLaptopCode} />
                 <span>Frontend</span>

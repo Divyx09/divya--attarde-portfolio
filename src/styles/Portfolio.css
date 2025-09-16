@@ -65,12 +65,15 @@
 
 .section {
   margin-bottom: 40px;
-  background: rgba(255, 255, 255, 0.03);
+  background: linear-gradient(135deg, 
+    rgba(100, 181, 246, 0.05) 0%, 
+    rgba(33, 150, 243, 0.03) 50%, 
+    rgba(100, 181, 246, 0.01) 100%);
   padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(100, 181, 246, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(100, 181, 246, 0.2);
   backdrop-filter: blur(10px);
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -78,9 +81,12 @@
 
 .section:hover {
   transform: translateY(-10px) rotateX(5deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(100, 181, 246, 0.2);
+  border-color: rgba(100, 181, 246, 0.4);
+  background: linear-gradient(135deg, 
+    rgba(100, 181, 246, 0.08) 0%, 
+    rgba(33, 150, 243, 0.05) 50%, 
+    rgba(100, 181, 246, 0.03) 100%);
 }
 
 .section h3 {
@@ -114,12 +120,16 @@
 .experience-item {
   padding: 25px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(135deg, 
+    rgba(100, 181, 246, 0.08) 0%, 
+    rgba(33, 150, 243, 0.05) 50%, 
+    rgba(100, 181, 246, 0.02) 100%);
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(100, 181, 246, 0.2);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .education-item::before,
@@ -133,7 +143,7 @@
   background: linear-gradient(
     45deg,
     transparent,
-    rgba(255, 255, 255, 0.03),
+    rgba(100, 181, 246, 0.08),
     transparent
   );
   transform: translateX(-100%);
@@ -148,8 +158,12 @@
 .education-item:hover,
 .experience-item:hover {
   transform: translateX(10px) scale(1.02);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, 
+    rgba(100, 181, 246, 0.12) 0%, 
+    rgba(33, 150, 243, 0.08) 50%, 
+    rgba(100, 181, 246, 0.05) 100%);
+  border-color: rgba(100, 181, 246, 0.4);
+  box-shadow: 0 10px 30px rgba(100, 181, 246, 0.15);
 }
 
 .edu-header,

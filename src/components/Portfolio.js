@@ -311,6 +311,30 @@ const Portfolio = () => {
                 Systems, and Software Engineering.
               </span>
             </div>
+
+            <div
+              className="education-item"
+              data-aos="fade-right"
+              data-aos-delay="300"
+            >
+              <div className="edu-header">
+                <h4>
+                  <FontAwesomeIcon
+                    icon={faGraduationCap}
+                    className="item-icon"
+                  />
+                  Higher Secondary (10th Standard)
+                </h4>
+                <span>2020</span>
+              </div>
+              <p>Maharashtra State Board</p>
+              <p>Percentage: 85.2%</p>
+              <span>
+                Completed secondary education with focus on core subjects including
+                Mathematics, Science, English, Hindi, Marathi, and Social Studies.
+                Strong foundation in analytical and problem-solving skills.
+              </span>
+            </div>
           </div>
 
           <div

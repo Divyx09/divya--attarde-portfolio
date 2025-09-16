@@ -269,7 +269,7 @@ const Header = () => {
                 alt="Divya Attarde - Software Developer" 
                 className="hero-profile-image"
               />
-              <div className="hero-image-overlay">
+              {/* <div className="hero-image-overlay">
                 <div className="floating-tech tech-1">
                   <i className="bi bi-code-slash"></i>
                 </div>
@@ -282,7 +282,7 @@ const Header = () => {
                 <div className="floating-tech tech-4">
                   <i className="bi bi-laptop"></i>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

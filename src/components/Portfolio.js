@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
 import "../styles/Portfolio.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,6 +16,7 @@ import {
   faPaperPlane,
   faArrowDown,
   faArrowUp,
+  faCloud,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faReact,
@@ -31,20 +30,9 @@ import {
   faSass,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-// import pimg from "../assets/images/divy.png";
-// import pimg from "../assets/images/divy-removebg-preview.png";
-// import pimg from "../assets/images/divy-removebg-previes/divy.glb;
-// import model3d from "../assets/3d deep.glb";
-//sad
-import model3d from "../assets/divy.glb";
 import resume from "../assets/Divya_Attarde_Resume.pdf";
 import axios from "axios";
 import { projects } from "./projects";
-
-function Model(props) {
-  const { scene } = useGLTF(model3d);
-  return <primitive object={scene} {...props} />;
-}
 
 const Portfolio = () => {
   const skills = {
@@ -72,8 +60,19 @@ const Portfolio = () => {
       { name: "Github", icon: faGithub },
       { name: "REST APIs", icon: faCode },
     ],
-    soft: ["Problem-Solving", "Time Management", "Adaptability", "Leadership", "Agile Methodology"],
-    cognitive: ["Critical Thinking", "Reasoning", "Learning", "SEO Optimization"],
+    soft: [
+      "Problem-Solving",
+      "Time Management",
+      "Adaptability",
+      "Leadership",
+      "Agile Methodology",
+    ],
+    cognitive: [
+      "Critical Thinking",
+      "Reasoning",
+      "Learning",
+      "SEO Optimization",
+    ],
   };
 
   const [formData, setFormData] = useState({
@@ -113,63 +112,146 @@ const Portfolio = () => {
     <section className="portfolio-section" id="portfolio">
       <div className="container">
         <div className="about-me-section" id="about">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <div className="about-text" data-aos="fade-right">
-                <h2 className="section-title">About Me</h2>
-                <p className="about-description">
-                  Hi! I'm Divya Attarde, a passionate Junior Software Developer based
-                  in India. I specialize in building web and mobile applications, SEO tools, and client
-                  platforms using modern technologies like React.js, Spring Boot, and Next.js.
+          <div className="about-hero">
+            <div className="about-hero-content" data-aos="fade-up">
+              <div className="hero-badge">
+                <FontAwesomeIcon icon={faCode} />
+                <span>Software Developer</span>
+              </div>
+
+              <h2 className="about-hero-title">About Me</h2>
+
+              <p className="about-hero-description">
+                Hi, I’m Divya Attarde, a passionate Full-Stack Developer from
+                Ujjain, Madhya Pradesh, currently in my final year of B.Tech in
+                Computer Science and Engineering. I specialize in React.js,
+                Redux, Java Spring Boot, REST APIs, and cloud platforms, with a
+                strong focus on building scalable and user-centric solutions.
+                <br />
+                Over the years, I have worked on more than 70 projects, several
+                of which are deployed live, including CraftAura.in, an
+                e-commerce platform. My professional journey began with
+                internships where I contributed to live projects such as
+                datacode.in and client-driven modules.
+                <br /> At present, I am working as a Junior Software Developer
+                at test.co, where I design seamless user interfaces, revamp
+                websites from scratch, and develop Android applications. I also
+                had the opportunity to represent my college at a National Level
+                Hackathon, where my team secured second position.
+              </p>
+
+              <div className="about-actions-section">
+                <a href={resume} className="download-resume-btn" download>
+                  <FontAwesomeIcon icon={faArrowDown} />
+                  <span>Download Resume</span>
+                </a>
+              </div>
+
+              <div className="about-hero-tags">
+                <span className="tech-tag">React.js</span>
+                <span className="tech-tag">Spring Boot</span>
+                <span className="tech-tag">Node Js</span>
+                <span className="tech-tag">Full-Stack</span>
+              </div>
+            </div>
+
+            <div className="about-hero-visual" data-aos="fade-left">
+              <div className="floating-card card-1">
+                <FontAwesomeIcon icon={faLaptopCode} />
+                <span>Frontend</span>
+              </div>
+              <div className="floating-card card-2">
+                <FontAwesomeIcon icon={faCogs} />
+                <span>Backend</span>
+              </div>
+              <div className="floating-card card-3">
+                <FontAwesomeIcon icon={faCloud} />
+                <span>Cloud Computing</span>
+              </div>
+              <div className="floating-card card-4">
+                <FontAwesomeIcon icon={faProjectDiagram} />
+                <span>Architecture</span>
+              </div>
+
+              <div className="central-avatar">
+                <div className="avatar-ring"></div>
+                <div className="avatar-content">
+                  <FontAwesomeIcon icon={faCode} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="about-details">
+            <div className="detail-card experience-card" data-aos="fade-right">
+              <div className="card-icon">
+                <FontAwesomeIcon icon={faBriefcase} />
+              </div>
+              <div className="card-content">
+                <h3>Experience</h3>
+                <p>
+                  2+ years building scalable web applications and collaborating
+                  in Agile teams
                 </p>
-                <p className="about-description">
-                  With hands-on experience in transforming complex requirements into scalable, 
-                  high-performance applications, I'm passionate about delivering real-world solutions 
-                  and collaborating in Agile teams to exceed client expectations.
+                <div className="card-stats">
+                  <span>20+ Projects</span>
+                  <span>15+ Technologies</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="detail-card passion-card" data-aos="fade-up">
+              <div className="card-icon">
+                <FontAwesomeIcon icon={faMedal} />
+              </div>
+              <div className="card-content">
+                <h3>Passion</h3>
+                <p>
+                  Delivering real-world solutions that exceed client
+                  expectations
                 </p>
-                <div className="about-actions">
-                  <a href={resume} className="download-cv" download>
-                    <i className="bi bi-download me-2"></i>
+                <div className="card-stats">
+                  <span>Quality Code</span>
+                  <span>User Experience</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="detail-card contact-card" data-aos="fade-left">
+              <div className="card-icon">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+              <div className="card-content">
+                <h3>Let's Connect</h3>
+                <p>Ready to collaborate on your next project</p>
+                <div className="card-actions">
+                  <a href={resume} className="action-btn primary" download>
+                    <FontAwesomeIcon icon={faArrowDown} />
                     Download CV
                   </a>
-                  <div className="social-links">
+                  <div className="social-mini">
                     <a
                       href="https://github.com/divyx09"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i className="bi bi-github"></i>
+                      <FontAwesomeIcon icon={faGithub} />
                     </a>
                     <a
                       href="https://www.linkedin.com/in/divya-attarde-634650253"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i className="bi bi-linkedin"></i>
+                      <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                     <a href="mailto:divyaattarde94@gmail.com">
-                      <i className="bi bi-envelope-fill"></i>
+                      <FontAwesomeIcon icon={faEnvelope} />
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="about-image" data-aos="fade-left">
-                <div className="model-container">
-                  <Canvas
-                    camera={{ position: [0, 1, 2], fov: 10 }}
-                    style={{ width: 400, height: 300 }}
-                  >
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[1, 1, 5]} intensity={1} />
-                    <Model scale={[1, 1, 1]} position={[0, -1.7, 0]} />
-                    <OrbitControls autoRotate />
-                  </Canvas>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="skills-section">
@@ -231,7 +313,12 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className="section" id="skills" data-aos="fade-up" data-aos-duration="1000">
+          <div
+            className="section"
+            id="skills"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="section-header">
               <FontAwesomeIcon icon={faCogs} className="section-icon" />
               <h3>SKILLS</h3>
@@ -299,7 +386,12 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className="section" id="experience" data-aos="fade-up" data-aos-duration="1000">
+          <div
+            className="section"
+            id="experience"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="section-header">
               <FontAwesomeIcon icon={faBriefcase} className="section-icon" />
               <h3>EXPERIENCE</h3>
@@ -323,14 +415,17 @@ const Portfolio = () => {
                     icon={faChevronRight}
                     className="list-icon"
                   />
-                  Developed production-ready web tools including pHext.com, redirectchecker.com, and SEO diagnostics utilities.
+                  Developed production-ready web tools including pHext.com,
+                  redirectchecker.com, and SEO diagnostics utilities.
                 </li>
                 <li data-aos="fade-up" data-aos-delay="200">
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className="list-icon"
                   />
-                  Revamped a legacy administration infrastructure, boosting page load speed, improving user experience, and optimizing Lighthouse scores.
+                  Revamped a legacy administration infrastructure, boosting page
+                  load speed, improving user experience, and optimizing
+                  Lighthouse scores.
                 </li>
               </ul>
             </div>
@@ -354,21 +449,26 @@ const Portfolio = () => {
                     icon={faChevronRight}
                     className="list-icon"
                   />
-                  Built and optimized reusable React.js components and streamlined API workflows, reducing code redundancy across projects.
+                  Built and optimized reusable React.js components and
+                  streamlined API workflows, reducing code redundancy across
+                  projects.
                 </li>
                 <li data-aos="fade-up" data-aos-delay="200">
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className="list-icon"
                   />
-                  Delivered a major client project 2 weeks ahead of schedule by coordinating in Agile sprints, improving client satisfaction.
+                  Delivered a major client project 2 weeks ahead of schedule by
+                  coordinating in Agile sprints, improving client satisfaction.
                 </li>
                 <li data-aos="fade-up" data-aos-delay="300">
                   <FontAwesomeIcon
                     icon={faChevronRight}
                     className="list-icon"
                   />
-                  Created an <strong>Admin Panel</strong> to manage various events, including meetup registrations, event scheduling, and user management.
+                  Created an <strong>Admin Panel</strong> to manage various
+                  events, including meetup registrations, event scheduling, and
+                  user management.
                 </li>
               </ul>
             </div>
@@ -532,49 +632,84 @@ const Portfolio = () => {
               <h3>CERTIFICATIONS</h3>
             </div>
             <div className="certifications-grid">
-              <div className="certification-item" data-aos="fade-right" data-aos-delay="100">
+              <div
+                className="certification-item"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
                 <h4>
                   <FontAwesomeIcon icon={faCode} className="item-icon" />
                   Google Cloud Skills Boost - Cloud Fundamentals
                 </h4>
                 <p className="cert-provider">Google Cloud</p>
-                <span>Earned multiple certifications and badges covering cloud computing fundamentals, infrastructure, and services.</span>
+                <span>
+                  Earned multiple certifications and badges covering cloud
+                  computing fundamentals, infrastructure, and services.
+                </span>
               </div>
-              
-              <div className="certification-item" data-aos="fade-right" data-aos-delay="150">
+
+              <div
+                className="certification-item"
+                data-aos="fade-right"
+                data-aos-delay="150"
+              >
                 <h4>
                   <FontAwesomeIcon icon={faGithub} className="item-icon" />
                   GitHub Foundation
                 </h4>
                 <p className="cert-provider">GitHub</p>
-                <span>Version control, collaboration workflows, and open source development practices.</span>
+                <span>
+                  Version control, collaboration workflows, and open source
+                  development practices.
+                </span>
               </div>
-              
-              <div className="certification-item" data-aos="fade-right" data-aos-delay="200">
+
+              <div
+                className="certification-item"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
                 <h4>
                   <FontAwesomeIcon icon={faCode} className="item-icon" />
                   Linux Operating Systems
                 </h4>
                 <p className="cert-provider">Red Hat Academy</p>
-                <span>System administration, command line operations, and Linux environment management.</span>
+                <span>
+                  System administration, command line operations, and Linux
+                  environment management.
+                </span>
               </div>
-              
-              <div className="certification-item" data-aos="fade-right" data-aos-delay="250">
+
+              <div
+                className="certification-item"
+                data-aos="fade-right"
+                data-aos-delay="250"
+              >
                 <h4>
                   <FontAwesomeIcon icon={faJava} className="item-icon" />
                   Core Java Training
                 </h4>
                 <p className="cert-provider">Besant Technologies</p>
-                <span>Object-oriented programming, data structures, and enterprise Java development.</span>
+                <span>
+                  Object-oriented programming, data structures, and enterprise
+                  Java development.
+                </span>
               </div>
-              
-              <div className="certification-item" data-aos="fade-right" data-aos-delay="300">
+
+              <div
+                className="certification-item"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
                 <h4>
                   <FontAwesomeIcon icon={faJava} className="item-icon" />
                   Core & Advanced Java
                 </h4>
                 <p className="cert-provider">Ypsilon Technologies</p>
-                <span>Advanced Java concepts, frameworks, and enterprise application development.</span>
+                <span>
+                  Advanced Java concepts, frameworks, and enterprise application
+                  development.
+                </span>
               </div>
             </div>
           </div>
@@ -593,8 +728,8 @@ const Portfolio = () => {
               </li>
               <li data-aos="fade-right" data-aos-delay="200">
                 <FontAwesomeIcon icon={faChevronRight} className="list-icon" />
-                Active participant in coding competitions and hackathons, focusing on
-                full-stack development and innovative solutions
+                Active participant in coding competitions and hackathons,
+                focusing on full-stack development and innovative solutions
               </li>
             </ul>
           </div>

@@ -2,6 +2,19 @@ import React, { useState, useEffect } from "react";
 import "../styles/Header.css";
 import profileImage from "../assets/divya-attarde-iamge.png";
 
+// Import tech SVG icons
+import ReactIcon from "../assets/tech Svg/React.svg";
+import JavaScriptIcon from "../assets/tech Svg/JavaScript.svg";
+import JavaIcon from "../assets/tech Svg/Java.svg";
+import NodeIcon from "../assets/tech Svg/Node.js.svg";
+import NextIcon from "../assets/tech Svg/Next.js.svg";
+import SpringIcon from "../assets/tech Svg/Spring.svg";
+import MongoIcon from "../assets/tech Svg/MongoDB.svg";
+import PostgresIcon from "../assets/tech Svg/PostgresSQL.svg";
+import AWSIcon from "../assets/tech Svg/AWS.svg";
+import AzureIcon from "../assets/tech Svg/Azure.svg";
+import GCPIcon from "../assets/tech Svg/Google Cloud.svg";
+
 const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -176,6 +189,32 @@ const Header = () => {
 
       {/* Hero Section */}
       <section id="home" className="hero-section">
+        {/* Background Floating Tech Icons */}
+        <div className="bg-tech-icon bg-tech-1">
+          <img src={ReactIcon} alt="React" />
+        </div>
+        <div className="bg-tech-icon bg-tech-2">
+          <img src={JavaScriptIcon} alt="JavaScript" />
+        </div>
+        <div className="bg-tech-icon bg-tech-3">
+          <img src={JavaIcon} alt="Java" />
+        </div>
+        <div className="bg-tech-icon bg-tech-4">
+          <img src={NodeIcon} alt="Node.js" />
+        </div>
+        <div className="bg-tech-icon bg-tech-5">
+          <img src={SpringIcon} alt="Spring Boot" />
+        </div>
+        <div className="bg-tech-icon bg-tech-6">
+          <img src={NextIcon} alt="Next.js" />
+        </div>
+        <div className="bg-tech-icon bg-tech-7">
+          <img src={MongoIcon} alt="MongoDB" />
+        </div>
+        <div className="bg-tech-icon bg-tech-8">
+          <img src={AWSIcon} alt="AWS" />
+        </div>
+        
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">

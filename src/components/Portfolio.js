@@ -411,7 +411,7 @@ const Portfolio = () => {
                 data-aos="fade-left"
                 data-aos-delay="600"
               >
-                <div className="stats-header">
+                <div className="stats-header text-center  ">
                   <h4>Education Statistics</h4>
                   <p>Academic Performance Overview</p>
                 </div>

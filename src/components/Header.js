@@ -20,12 +20,19 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const sections = ["home", "about", "skills", "experience", "projects", "contact"];
-    
+    const sections = [
+      "home",
+      "about",
+      "skills",
+      "experience",
+      "projects",
+      "contact",
+    ];
+
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -80% 0px', // Trigger when section is 20% from top
-      threshold: 0
+      rootMargin: "-20% 0px -80% 0px", // Trigger when section is 20% from top
+      threshold: 0,
     };
 
     const observerCallback = (entries) => {
@@ -33,23 +40,31 @@ const Header = () => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
           if (sections.includes(sectionId) && sectionId !== activeSection) {
-            console.log('Section in view:', sectionId);
+            console.log("Section in view:", sectionId);
             setActiveSection(sectionId);
           }
         }
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     // Observe all sections
-    sections.forEach(sectionId => {
+    sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
         observer.observe(element);
-        console.log('Observing section:', sectionId, 'at position:', element.offsetTop);
+        console.log(
+          "Observing section:",
+          sectionId,
+          "at position:",
+          element.offsetTop
+        );
       } else {
-        console.log('Section not found:', sectionId);
+        console.log("Section not found:", sectionId);
       }
     });
 
@@ -61,15 +76,15 @@ const Header = () => {
   const handleSectionClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
-    
+
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80; // Account for any fixed headers
       const elementPosition = element.offsetTop - offset;
-      
+
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -81,8 +96,8 @@ const Header = () => {
         <nav className="tab-menu">
           <ul className="tab-links">
             <li>
-              <a 
-                href="#home" 
+              <a
+                href="#home"
                 className={activeSection === "home" ? "active" : ""}
                 onClick={() => handleSectionClick("home")}
               >
@@ -90,8 +105,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className={activeSection === "about" ? "active" : ""}
                 onClick={() => handleSectionClick("about")}
               >
@@ -99,8 +114,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a 
-                href="#skills" 
+              <a
+                href="#skills"
                 className={activeSection === "skills" ? "active" : ""}
                 onClick={() => handleSectionClick("skills")}
               >
@@ -108,8 +123,8 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a 
-                href="#experience" 
+              <a
+                href="#experience"
                 className={activeSection === "experience" ? "active" : ""}
                 onClick={() => handleSectionClick("experience")}
               >
@@ -172,13 +187,19 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#experience" onClick={() => handleSectionClick("experience")}>
+              <a
+                href="#experience"
+                onClick={() => handleSectionClick("experience")}
+              >
                 <i className="bi bi-briefcase-fill"></i>
                 <span>Experience</span>
               </a>
             </li>
             <li>
-              <a href="#projects" onClick={() => handleSectionClick("projects")}>
+              <a
+                href="#projects"
+                onClick={() => handleSectionClick("projects")}
+              >
                 <i className="bi bi-folder"></i>
                 <span>Projects</span>
               </a>
@@ -220,7 +241,7 @@ const Header = () => {
         <div className="bg-tech-icon bg-tech-8">
           <img src={AWSIcon} alt="AWS" />
         </div>
-        
+
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
@@ -231,8 +252,9 @@ const Header = () => {
               <span className="highlight">Software Developer</span>
             </h2>
             <p className="hero-description">
-              Passionate Junior Software Developer specializing in building web and mobile applications, 
-              SEO tools, and client platforms using modern technologies like React.js, Spring Boot, and Next.js.
+              Passionate Junior Software Developer specializing in building web
+              and mobile applications, SEO tools, and client platforms using
+              modern technologies like React.js, Spring Boot, and Next.js.
             </p>
             <div className="hero-stats">
               <div className="stat-item">
@@ -267,12 +289,12 @@ const Header = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="hero-visual">
             <div className="hero-image-container">
-              <img 
-                src={profileImage} 
-                alt="Divya Attarde - Software Developer" 
+              <img
+                src={profileImage}
+                alt="Divya Attarde - Software Developer"
                 className="hero-profile-image"
               />
               {/* <div className="hero-image-overlay">
@@ -292,8 +314,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        
-        <div className="scroll-indicator">
+
+        <div className="scroll-indicator d-none d-md-flex">
           <div className="scroll-mouse">
             <div className="scroll-wheel"></div>
           </div>

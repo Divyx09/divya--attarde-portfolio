@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../styles/Portfolio.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+import { Pie } from "react-chartjs-2";
+import {
   faGraduationCap,
   faBriefcase,
   faCode,
@@ -37,7 +46,111 @@ import resume from "../assets/Divya_Attarde_Resume.pdf";
 import axios from "axios";
 import { projects } from "./projects";
 
+// Register Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale);
+
 const Portfolio = () => {
+  // Education data for Chart.js pie chart
+  const educationChartData = {
+    labels: [
+      "B.Tech CSE (2023-2026)",
+      "Diploma CS (2020-2023)",
+      "10th Standard (2019-2020)",
+    ],
+    datasets: [
+      {
+        data: [42.9, 42.9, 14.2], // Updated percentages: B.Tech 3 years, Diploma 3 years, 10th 1 year out of 7 total
+        backgroundColor: [
+          "#64b5f6", // B.Tech - Blue
+          "#4caf50", // Diploma - Green
+          "#9c27b0", // 10th - Purple
+        ],
+        borderColor: ["#2196f3", "#2e7d32", "#6a1b9a"],
+        borderWidth: 2,
+        hoverBackgroundColor: ["#90caf9", "#66bb6a", "#ba68c8"],
+        hoverBorderColor: "#ffffff",
+        hoverBorderWidth: 3,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#ffffff",
+          font: {
+            size: 12,
+            family: "'Poppins', sans-serif",
+          },
+          padding: 15,
+          usePointStyle: true,
+          pointStyle: "circle",
+          boxWidth: 12,
+          boxHeight: 12,
+        },
+      },
+      tooltip: {
+        backgroundColor: "rgba(12, 18, 32, 0.95)",
+        titleColor: "#64b5f6",
+        bodyColor: "#ffffff",
+        borderColor: "#64b5f6",
+        borderWidth: 1,
+        cornerRadius: 10,
+        displayColors: true,
+        titleFont: {
+          size: 14,
+          weight: "bold",
+        },
+        bodyFont: {
+          size: 12,
+        },
+        callbacks: {
+          label: function (context) {
+            const educationDetails = [
+              {
+                institution: "Sri Aurobindo Institute Of Technology (RGPV)",
+                grade: "CGPA: 7.2/10",
+                description: "Computer Science & Engineering",
+              },
+              {
+                institution: "Ujjain Polytechnic College (RGPV)",
+                grade: "Percentage: 78.8%",
+                description: "Computer Science Engineering",
+              },
+              {
+                institution: "Christu Jyoti Convent School",
+                grade: "Percentage: 73.8%",
+                description: "Science & Mathematics",
+              },
+            ];
+
+            const detail = educationDetails[context.dataIndex];
+            return [
+              `Institution: ${detail.institution}`,
+              `Grade: ${detail.grade}`,
+              `Field: ${detail.description}`,
+              `Duration: ${context.parsed.toFixed(1)}% of total education`,
+            ];
+          },
+        },
+      },
+    },
+    elements: {
+      arc: {
+        borderWidth: 2,
+      },
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+      duration: 2000,
+    },
+  };
+
   const skills = {
     frontend: [
       { name: "React", icon: faReact },
@@ -261,90 +374,83 @@ const Portfolio = () => {
           </div> */}
         </div>
 
-        <div className="skills-section">
+        <div className="education-section">
           <div className="section" data-aos="fade-up" data-aos-duration="1000">
             <div className="section-header">
               <FontAwesomeIcon
                 icon={faGraduationCap}
                 className="section-icon"
               />
-              <h3>EDUCATION</h3>
-            </div>
-            <div
-              className="education-item"
-              data-aos="fade-right"
-              data-aos-delay="100"
-            >
-              <div className="edu-header">
-                <h4>
-                  <FontAwesomeIcon
-                    icon={faGraduationCap}
-                    className="item-icon"
-                  />
-                  Bachelor of Technology
-                </h4>
-                <span>Expected 2026</span>
-              </div>
-              <p>Sri Aurobindo Institute Of Technology (RGPV)</p>
-              <p>CGPA: 7.2/10</p>
-              <span>
-                In-depth study of Data Structures, Algorithms, Operating
-                Systems, and Database Management Systems. Strong focus on
-                full-stack development using React, Spring Boot, and MongoDB.
-              </span>
+              <h3>EDUCATION JOURNEY</h3>
+              <p className="section-subtitle">
+                Academic Timeline & Achievements
+              </p>
             </div>
 
-            <div
-              className="education-item"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <div className="edu-header">
-                <h4>
-                  <FontAwesomeIcon
-                    icon={faGraduationCap}
-                    className="item-icon"
-                  />
-                  Diploma in Computer Science
-                </h4>
-                <span>2020 - 2023</span>
+            <div className="education-pie-container">
+              <div
+                className="pie-chart-wrapper"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
+                <div className="chart-container">
+                  <Pie data={educationChartData} options={chartOptions} />
+                </div>
+                <span
+                  className="info-note"
+                  title="Hover over the chart segments to see detailed information about each education level"
+                >
+                  <FontAwesomeIcon icon={faArrowUp} className="info-icon" />
+                  Hover to view details
+                </span>
               </div>
-              <p>Ujjain Polytechnic College (RGPV)</p>
-              <p>Percentage: 78.8%</p>
-              <span>
-                Acquired strong foundational knowledge in computer science
-                including programming languages like Java, C, and Python.
-                Completed coursework in Data Structures, Database Management
-                Systems, and Software Engineering.
-              </span>
-            </div>
 
-            <div
-              className="education-item"
-              data-aos="fade-right"
-              data-aos-delay="300"
-            >
-              <div className="edu-header">
-                <h4>
-                  <FontAwesomeIcon
-                    icon={faGraduationCap}
-                    className="item-icon"
-                  />
-                  Higher Secondary (10th Standard)
-                </h4>
-                <span>2020</span>
+              {/* Education Stats */}
+              <div
+                className="education-stats"
+                data-aos="fade-left"
+                data-aos-delay="600"
+              >
+                <div className="stats-header">
+                  <h4>Education Statistics</h4>
+                  <p>Academic Performance Overview</p>
+                </div>
+                <div className="stats-grid">
+                  <div className="stat-card">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faChevronRight} />
+                    </div>
+                    <div className="stat-number">7</div>
+                    <div className="stat-label">Total Years</div>
+                  </div>
+                  <div className="stat-card">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faMedal} />
+                    </div>
+                    <div className="stat-number">3</div>
+                    <div className="stat-label">Qualifications</div>
+                  </div>
+                  <div className="stat-card">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faArrowUp} />
+                    </div>
+                    <div className="stat-number">85.2%</div>
+                    <div className="stat-label">Highest Score</div>
+                  </div>
+                  <div className="stat-card">
+                    <div className="stat-icon">
+                      <FontAwesomeIcon icon={faGraduationCap} />
+                    </div>
+                    <div className="stat-number">7.2</div>
+                    <div className="stat-label">Current CGPA</div>
+                  </div>
+                </div>
               </div>
-              <p>Maharashtra State Board</p>
-              <p>Percentage: 85.2%</p>
-              <span>
-                Completed secondary education with focus on core subjects
-                including Mathematics, Science, English, Hindi, Marathi, and
-                Social Studies. Strong foundation in analytical and
-                problem-solving skills.
-              </span>
             </div>
           </div>
+        </div>
 
+        <div className="skills-section">
           <div
             className="section"
             id="skills"

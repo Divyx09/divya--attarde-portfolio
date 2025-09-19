@@ -580,7 +580,7 @@ const Portfolio = () => {
                 </h4>
                 <span>Feb 2025 - Present</span>
               </div>
-              <p className="company">Tea.co - Remote (Hyderabad based)</p>
+              <p className="company">Tess.co - Remote (Hyderabad based)</p>
               <ul>
                 <li data-aos="fade-up" data-aos-delay="150">
                   <FontAwesomeIcon
